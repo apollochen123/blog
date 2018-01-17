@@ -6,4 +6,4 @@
 4. $ npm install -g hexo-cli
 5. $ npm install
 6. $ npm install hexo-deployer-git --save
-
+7. $ npm i -S hexo-prism-plugin
