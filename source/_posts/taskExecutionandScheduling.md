@@ -67,45 +67,7 @@ TaskExecutor 最初被创建主要是给spring其他组件提供一个线程池�
 提交了task10
 14时44分38秒--Thread : Thread[pool-2-thread-6,5,main]   I am printing5
 14时44分38秒--Thread : Thread[pool-2-thread-9,5,main]   I am printing8
-14时44分38秒--Thread : Thread[pool-2-thread-10,5,main]   I am printing9
-14时44分38秒--Thread : Thread[pool-2-thread-8,5,main]   I am printing7
-14时44分38秒--Thread : Thread[pool-2-thread-7,5,main]   I am printing6
-提交了task11
-14时44分48秒--Thread : Thread[pool-2-thread-11,5,main]   I am printing10
-提交了task12
-14时44分48秒--Thread : Thread[pool-2-thread-12,5,main]   I am printing11
-提交了task13
-14时44分48秒--Thread : Thread[pool-2-thread-13,5,main]   I am printing12
-提交了task14
-14时44分48秒--Thread : Thread[pool-2-thread-14,5,main]   I am printing13
-提交了task15
-14时44分48秒--Thread : Thread[pool-2-thread-15,5,main]   I am printing14
-提交了task16
-提交了task17
-提交了task18
-14时44分48秒--Thread : Thread[pool-2-thread-16,5,main]   I am printing15
-提交了task19
-提交了task20
-14时44分48秒--Thread : Thread[pool-2-thread-17,5,main]   I am printing16
-14时44分48秒--Thread : Thread[pool-2-thread-18,5,main]   I am printing17
-14时44分48秒--Thread : Thread[pool-2-thread-20,5,main]   I am printing19
-14时44分48秒--Thread : Thread[pool-2-thread-19,5,main]   I am printing18
-提交了task21
-14时44分58秒--Thread : Thread[pool-2-thread-21,5,main]   I am printing20
-提交了task22
-14时44分58秒--Thread : Thread[pool-2-thread-22,5,main]   I am printing21
-提交了task23
-14时44分58秒--Thread : Thread[pool-2-thread-23,5,main]   I am printing22
-提交了task24
-提交了task25
-14时44分58秒--Thread : Thread[pool-2-thread-24,5,main]   I am printing23
-14时44分58秒--Thread : Thread[pool-2-thread-25,5,main]   I am printing24
-提交了task26
-14时44分58秒--Thread : Thread[pool-2-thread-26,5,main]   I am printing25
-提交了task27
-14时44分58秒--Thread : Thread[pool-2-thread-27,5,main]   I am printing26
-提交了task28
-14时44分58秒--Thread : Thread[pool-2-thread-28,5,main]   I am printing27
+     ...
 提交了task29
 14时44分58秒--Thread : Thread[pool-2-thread-29,5,main]   I am printing28
 14时44分58秒--Thread : Thread[pool-2-thread-30,5,main]   I am printing29
@@ -472,7 +434,7 @@ public void doSomething()
 }
 ```
 详细参考：[百度经验](https://jingyan.baidu.com/article/7f41ecec0d0724593d095c19.html)
->0 0 10,14,16 * * ? 每天上午10点，下午2点，4点
+ 0 0 10,14,16 * * ? 每天上午10点，下午2点，4点
  0 0/30 9-17 * * ? 朝九晚五工作时间内每半小时
  0 15 10 ? * * 每天上午10:15触发
  0 15 10 * * ? 每天上午10:15触发
