@@ -34,7 +34,7 @@ Nav:
             use: false
             link:
     pages:
-        bout Me:
+        about Me:
             link: "/about/"
 #        团队 :
 #            link: "/group/"
