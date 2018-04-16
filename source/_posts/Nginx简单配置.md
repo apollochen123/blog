@@ -2,8 +2,8 @@
 title: Nginx简单学习
 date: 2018-4-5 18:02:10
 tags:
- -环境配置
-categories: 环境配置
+ -web server
+categories: web server
 thumbnail: https://github.com/apollochen123/image/blob/master/%E5%B0%81%E9%9D%A2/fengmian6.jpg?raw=true
 ---
 

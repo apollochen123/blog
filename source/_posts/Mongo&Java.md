@@ -2,8 +2,8 @@
 title: Mongo with Spring
 date: 2018-04-5 10:47:51
 tags:
- -MongoDb
-categories: MongoDb
+ -DB
+categories: DB
 thumbnail: https://github.com/apollochen123/image/blob/master/%E5%B0%81%E9%9D%A2/fengmian2.jpg?raw=true
 ---
 # Mongo

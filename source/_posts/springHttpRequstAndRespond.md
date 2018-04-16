@@ -44,6 +44,9 @@ public class Controller extends GeneralController {
 
 ------
 ## How do spring keep thread safety
+这是使用requst时的事情
+![注入](https://github.com/apollochen123/image/blob/master/request%E8%B0%83%E7%94%A8.png?raw=true)
+
 I get the solution in spring IOC process. The question how do spring generate the bean is the key to solving the problem. So I find that:
 AbstractRefreshableWebApplicationContext.class
 <div align=center>
