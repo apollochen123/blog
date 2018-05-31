@@ -2,9 +2,9 @@
 title: Spring AOP
 date: 2017-12-15 21:47:51
 tags:
- -Spring Core
-categories: Spring Core
-thumbnail: https://raw.githubusercontent.com/apollochen123/image/master/springAOP.jpg
+ -Spring
+categories: Spring
+thumbnail: https://raw.githubusercontent.com/apollochen123/image/master/%E9%BB%98%E8%AE%A42.jpg
 ---
 
 # **spring AOP**

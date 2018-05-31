@@ -4,7 +4,7 @@ date: 2017-11-14 21:47:51
 tags:
  -Spring Cloud
 categories: Spring Cloud
-thumbnail: https://raw.githubusercontent.com/apollochen123/image/master/hystrixConfiguration.jpg
+thumbnail: https://raw.githubusercontent.com/apollochen123/image/master/%E9%BB%98%E8%AE%A42.jpg
 ---
 
 # **Hystrix配置**

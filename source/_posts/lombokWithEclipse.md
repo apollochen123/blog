@@ -4,7 +4,7 @@ date: 2018-03-23 10:47:51
 tags:
  -Plug-in
 categories: Plug-in
-thumbnail: https://raw.githubusercontent.com/apollochen123/image/master/hystrixConfiguration.jpg
+thumbnail: https://raw.githubusercontent.com/apollochen123/image/master/%E9%BB%98%E8%AE%A42.jpg
 ---
 
 # Eclipse with lombok

@@ -2,9 +2,9 @@
 title: AOP in Catch Error
 date: 2018-2-07 16:14:10
 tags:
- -Spring Core
-categories: Spring Core
-thumbnail: https://github.com/apollochen123/image/blob/master/%E5%B0%81%E9%9D%A2/fengmian4.jpg?raw=true
+ -Spring
+categories: Spring
+thumbnail: https://raw.githubusercontent.com/apollochen123/image/master/%E9%BB%98%E8%AE%A42.jpg
 ---
 
 # Monitor Error Catch AOP

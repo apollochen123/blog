@@ -1,10 +1,10 @@
 ---
-title: Thrift Annotation and maven pugin
+title: Thrift Annotation and Maven Pugin
 date: 2018-4-24 21:02:10
 tags:
  -RPC
 categories: RPC
-thumbnail: https://github.com/apollochen123/image/blob/master/%E5%B0%81%E9%9D%A2/fengmian3.jpg?raw=true
+thumbnail: https://raw.githubusercontent.com/apollochen123/image/master/%E9%BB%98%E8%AE%A42.jpg
 ---
 
 # Thrift Annotation and maven pugin

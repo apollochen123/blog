@@ -4,7 +4,7 @@ date: 2018-04-5 10:47:51
 tags:
  -DB
 categories: DB
-thumbnail: https://github.com/apollochen123/image/blob/master/%E5%B0%81%E9%9D%A2/fengmian2.jpg?raw=true
+thumbnail: https://raw.githubusercontent.com/apollochen123/image/master/%E9%BB%98%E8%AE%A42.jpg
 ---
 # Mongo
 ---------
