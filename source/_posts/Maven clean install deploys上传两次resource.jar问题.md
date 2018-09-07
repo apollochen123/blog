@@ -72,11 +72,11 @@ pom配置
 ### 问题分析
 -------
 1. 问题的发生点在于：Nexus，release仓库不能覆盖配置导致的。这也是为什么snapshot可以成功跑过，但是release不行的原因。
-![不能覆盖]()
+![不能覆盖](https://raw.githubusercontent.com/apollochen123/image/master/mvn%E4%B8%A4%E6%AC%A1deploy%E7%9B%B8%E5%90%8Cjar%E6%8A%A5%E9%94%99/%E4%BB%93%E5%BA%93%E4%B8%8D%E8%83%BD%E8%A6%86%E7%9B%96.jpg)
 
 
 2. 但是我们研究一下，为什么会有两次的Installing，两次deploy： ****-sources.jar
-![两次sources.jar](https://raw.githubusercontent.com/apollochen123/image/master/mvn%E4%B8%A4%E6%AC%A1deploy%E7%9B%B8%E5%90%8Cjar%E6%8A%A5%E9%94%99/%E4%BB%93%E5%BA%93%E4%B8%8D%E8%83%BD%E8%A6%86%E7%9B%96.jpg)
+![两次sources.jar](https://raw.githubusercontent.com/apollochen123/image/master/mvn%E4%B8%A4%E6%AC%A1deploy%E7%9B%B8%E5%90%8Cjar%E6%8A%A5%E9%94%99/%E4%B8%A4%E6%AC%A1sourcesjar.jpg)
 sources.jar 生成的配置
 ```xml
 <executions>
