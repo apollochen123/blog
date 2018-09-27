@@ -47,7 +47,7 @@ pom配置
         <distributionManagement>
             <repository>
                 <id>jrepo2-public</id>
-                <url>http://jrepo2.yypm.com/nexus/content/repositories/snapshots</url>
+                <url>http://**/repositories/snapshots</url>
             </repository>
         </distributionManagement>
     </profile>
@@ -57,7 +57,7 @@ pom配置
         <distributionManagement>
             <repository>
                 <id>jrepo2-public</id>
-                <url>http://jrepo2.yypm.com/nexus/content/repositories/releases</url>
+                <url>http://**/repositories/releases</url>
             </repository>
         </distributionManagement>
     </profile>
@@ -71,31 +71,35 @@ pom配置
 
 ### 问题分析
 -------
-1. 问题的发生点在于：Nexus，release仓库不能覆盖配置导致的。这也是为什么snapshot可以成功跑过，但是release不行的原因。
+
+* 问题的发生点在于：Nexus，release仓库不能覆盖配置导致的。这也是为什么snapshot可以成功跑过，但是release不行的原因。
 ![不能覆盖](https://raw.githubusercontent.com/apollochen123/image/master/mvn%E4%B8%A4%E6%AC%A1deploy%E7%9B%B8%E5%90%8Cjar%E6%8A%A5%E9%94%99/%E4%BB%93%E5%BA%93%E4%B8%8D%E8%83%BD%E8%A6%86%E7%9B%96.jpg)
 
+------
 
-2. 但是我们研究一下，为什么会有两次的Installing，两次deploy： ****-sources.jar
+* 但是我们研究一下，为什么会有两次的Installing，两次deploy： ****-sources.jar
 ![两次sources.jar](https://raw.githubusercontent.com/apollochen123/image/master/mvn%E4%B8%A4%E6%AC%A1deploy%E7%9B%B8%E5%90%8Cjar%E6%8A%A5%E9%94%99/%E4%B8%A4%E6%AC%A1sourcesjar.jpg)
 sources.jar 生成的配置
-```xml
-<executions>
-    <execution>
-        <!-- This id must match the -P release-profile id value or else sources will be "uploaded" twice, which causes Nexus to fail -->
-        <id>attach-sources</id>
-        <!--<phase>deploy</phase>-->
-        <goals>
-            <goal>jar</goal>
-        </goals>
-    </execution>
-</executions>
-```
+  ```xml
+  <executions>
+      <execution>
+          <!-- This id must match the -P release-profile id value or else sources will be "uploaded" twice, which causes Nexus to fail -->
+          <id>attach-sources</id>
+          <!--<phase>deploy</phase>-->
+          <goals>
+              <goal>jar</goal>
+          </goals>
+      </execution>
+  </executions>
+  ```
 这个配置会生成sources.jar
-我们去官网查一下特的lifecle
+我们去官网查一下attach-sources的Lifecycles
 ![source生命周期](https://raw.githubusercontent.com/apollochen123/image/master/mvn%E4%B8%A4%E6%AC%A1deploy%E7%9B%B8%E5%90%8Cjar%E6%8A%A5%E9%94%99/sources-lifecle.png)
 所以，执行package以后的所有生命周期，都会执行这个生成sources.jar的操作。install和deploy都会执行。也就能够解释了。
 
-3. 为什么生成两个相同的source.jar都会被上传。我们先用snapshot仓库测试一下
+-------
+
+* 为什么生成两个相同的source.jar都会被上传。我们先用snapshot仓库测试一下
 ![两次sources.jar](https://raw.githubusercontent.com/apollochen123/image/master/mvn%E4%B8%A4%E6%AC%A1deploy%E7%9B%B8%E5%90%8Cjar%E6%8A%A5%E9%94%99/%E4%B8%A4%E6%AC%A1sourcesjar.jpg)
 两个一样的文件为什么会被上传两次？我们看一下deploy文档
 ![deploy文档](https://raw.githubusercontent.com/apollochen123/image/master/mvn%E4%B8%A4%E6%AC%A1deploy%E7%9B%B8%E5%90%8Cjar%E6%8A%A5%E9%94%99/%E6%A0%A1%E9%AA%8Cmd5.png)
@@ -116,3 +120,42 @@ sources.jar 生成的配置
 </execution>
 ```
 生成source在install和deploy阶段被执行两次，生成两个sources.jar包。名字相同但是Md5不同。所以deploy会认为这是两个jar。都会上传。但是Nexus仓库会识别到这两个jar名字一样，是同一个包，加上又设置了不能覆盖，所以报400错误。
+
+----
+正确做法
+父类添加pluginManagement
+```xml
+<pluginManagement>
+    <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-source-plugin</artifactId>
+            <version>3.0.1</version>
+            <executions>
+                <execution>
+                    <!-- This id must match the -P release-profile id value or else sources will be "uploaded" twice, which causes Nexus to fail -->
+                    <id>attach-sources</id>
+                    <goals>
+                        <goal>jar</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
+    </plugins>
+</pluginManagement>
+```
+子类添加
+```xml
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-source-plugin</artifactId>
+        </plugin>
+    </plugins>
+</build>
+```
+然后部署命令使用
+```
+mvn clean deploy -P release
+```
