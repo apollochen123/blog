@@ -11,7 +11,7 @@ html {
 .typo { background:#FFFACD;}
 p,li{
   color: #030303 ;
-  font-size: 25px;
+  font-size: 17px;
   font-family: 微软雅黑,宋体, 'New York'
 }
 /* 如果你的项目仅支持 IE9+ | Chrome | Firefox 等，推荐在 <html> 中添加 .borderbox 这个 class */
